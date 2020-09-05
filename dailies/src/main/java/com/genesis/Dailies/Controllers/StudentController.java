@@ -48,5 +48,10 @@ public class StudentController {
 		return studentService.deleteStudent(student_id);
 	}
 	
+	@RequestMapping(path = "/getStudents/{parent_id}" , method=RequestMethod.GET)
+	public List<StudentEntity> getClass(@PathVariable int parent_id) {
+		return  studentService.getStudentsByParentId(parent_id);
+	}
+	
 	
 	}

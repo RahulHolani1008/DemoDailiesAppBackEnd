@@ -32,7 +32,7 @@ public class ClassEntity {
 	private String endTime ; 
 	
 	@Column(name = "daysofweek")
-	private int daysOfWeek;
+	private String daysOfWeek;
 	
 	@Column(name = "countofstudent")
 	private int countOfStudent;
@@ -93,11 +93,11 @@ public class ClassEntity {
 		this.endTime = endTime;
 	}
 
-	public int getDaysOfWeek() {
+	public String getDaysOfWeek() {
 		return daysOfWeek;
 	}
 
-	public void setDaysOfWeek(int daysOfWeek) {
+	public void setDaysOfWeek(String daysOfWeek) {
 		this.daysOfWeek = daysOfWeek;
 	}
 	

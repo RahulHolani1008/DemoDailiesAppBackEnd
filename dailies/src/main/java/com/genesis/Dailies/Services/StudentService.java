@@ -50,6 +50,10 @@ public String deleteStudent(int student_id) {
 	
 	if(student_id>0)
 	{
+		StudentEntity studentEntity = (StudentEntity) studentRepository.findById(student_id).orElse(null);
+		ClassEntity classEntity = classRepository.findById(studentEntity.getClassId()).get();
+		classEntity.setCountOfStudent(classEntity.getCountOfStudent()+1);
+		classRepository.save(classEntity);
 		studentRepository.deleteById(student_id);
 		return "successfully Deleted";
 	}else {
@@ -70,6 +74,14 @@ public String deleteStudentByClassId(int class_id, int student_id) {
 		return "missing argument";
 	}
 
+}
+
+public List<StudentEntity> getStudentsByParentId(int parent_id) {
+	List<StudentEntity> listOfStudent = new ArrayList<>();
+	if(parent_id >0) {
+		listOfStudent =studentRepository.findAllByParentId(parent_id);
+		}
+	return listOfStudent;
 }
 	
 

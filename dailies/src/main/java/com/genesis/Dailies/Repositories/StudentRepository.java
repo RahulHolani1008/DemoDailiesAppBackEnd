@@ -10,6 +10,8 @@ import com.genesis.Dailies.Entities.StudentEntity;
 public interface StudentRepository extends CrudRepository<StudentEntity, Integer> {
 
 	List<StudentEntity> findAllByClassId(int class_id);
+	
+	List<StudentEntity> findAllByParentId(int parent_id);
 
 
 

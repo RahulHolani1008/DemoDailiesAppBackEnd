@@ -21,7 +21,7 @@ public class ParentController {
  
 	@Autowired
 	ParentService parentService;
-	@RequestMapping(method = RequestMethod.POST, path = "/ragister")
+	@RequestMapping(method = RequestMethod.POST, path = "/register")
 	public ParentEntity parentRagister(@RequestBody ParentEntity parentEntity){
 		return parentService.parentRagisters(parentEntity);
 	}
