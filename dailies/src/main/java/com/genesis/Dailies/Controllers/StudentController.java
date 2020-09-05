@@ -37,4 +37,16 @@ public class StudentController {
 	public List<StudentEntity> getStudent(@PathVariable int class_id) {
 		return  studentService.getstudentsByClassId(class_id);
 	}
-}
+	
+	@RequestMapping(path = "/deletestudent/{class_id}/{student_id}" , method=RequestMethod.DELETE)
+	public String deleteStudentByClassId(@PathVariable int class_id, @PathVariable int student_id) {
+		return studentService.deleteStudentByClassId(class_id,student_id);
+	}
+	
+	@RequestMapping(path = "/deletestudent/{student_id}" , method=RequestMethod.DELETE)
+	public String deleteStudent(@PathVariable int student_id) {
+		return studentService.deleteStudent(student_id);
+	}
+	
+	
+	}

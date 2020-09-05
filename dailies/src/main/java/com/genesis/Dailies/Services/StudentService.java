@@ -44,6 +44,33 @@ public List<StudentEntity> getstudentsByClassId(int class_id) {
 		}
 	return listOfStudent;
 }
+
+
+public String deleteStudent(int student_id) {
+	
+	if(student_id>0)
+	{
+		studentRepository.deleteById(student_id);
+		return "successfully Deleted";
+	}else {
+		return "missing argument";
+	}
+	
+}
+
+
+public String deleteStudentByClassId(int class_id, int student_id) {
+	if( student_id > 0 && class_id > 0) {
+		ClassEntity classEntity = classRepository.findById(class_id).get();
+		classEntity.setCountOfStudent(classEntity.getCountOfStudent()+1);
+		classRepository.save(classEntity);
+		studentRepository.deleteById(student_id);
+		return "successfully Deleted";
+	}else {
+		return "missing argument";
+	}
+
+}
 	
 
 }
