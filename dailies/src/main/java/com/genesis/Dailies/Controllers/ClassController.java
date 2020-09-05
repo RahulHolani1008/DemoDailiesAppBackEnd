@@ -36,4 +36,8 @@ public class ClassController {
 		return  classService.getClassesByTeacherId(teacher_id);
 	}
 	
+	@RequestMapping(path = "/getavailableclasses" , method=RequestMethod.GET)
+	public List<ClassEntity> getAvailableClass() {
+		return  classService.getAvailableClasses();
+	}
 }

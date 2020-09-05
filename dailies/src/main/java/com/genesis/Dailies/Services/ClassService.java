@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.genesis.Dailies.Entities.ClassEntity;
 import com.genesis.Dailies.Repositories.ClassRepository;
+import com.sun.el.stream.Optional;
 
 @Service
 public class ClassService {
@@ -31,6 +32,24 @@ public List<ClassEntity> getClassesByTeacherId(int teacher_id) {
 		listOfClass =classRepository.findAllByTeacherId(teacher_id);
 		}
 	return listOfClass;
+}
+
+
+public List<ClassEntity> getAvailableClasses() {
+	
+	List<ClassEntity> getAvailableClasses = new ArrayList<>();
+	
+	List<ClassEntity> allClasses=(List<ClassEntity>) classRepository.findAll();
+	
+	if(!allClasses.isEmpty()) {
+	for(ClassEntity newClass:allClasses)
+	{
+		if(newClass.getCountOfStudent()>0) {
+			getAvailableClasses.add(newClass);
+		}
+	}
+	}
+	return getAvailableClasses;
 }
 	
 

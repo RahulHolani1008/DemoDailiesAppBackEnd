@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 05, 2020 at 09:13 AM
+-- Generation Time: Sep 05, 2020 at 10:32 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `class` (
 
 INSERT INTO `class` (`id`, `classname`, `description`, `starttime`, `endtime`, `daysofweek`, `teacherid`, `countofstudent`) VALUES
 (1, '12th', 'Ram', '7PM', '6PM', '8', 1, 4),
-(2, '10th', 'Ram', '7PM', '6PM', '8', 1, 4),
+(2, '10th', 'Ram', '7PM', '6PM', '8', 1, 0),
 (3, '8th', 'Raaj', '7PM', '6PM', '8', 1, 4);
 
 -- --------------------------------------------------------
@@ -71,6 +71,34 @@ CREATE TABLE IF NOT EXISTS `perant` (
 
 INSERT INTO `perant` (`id`, `fullname`, `email`, `password`) VALUES
 (1, 'Rahul', 'abc@gamil.com', 'abcde');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `classid` int(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `parentid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `classid`, `email`, `fullname`, `parentid`) VALUES
+(1, 0, 'Peeyusgc@gamil.com', 'Peeyush', 1),
+(2, 2, 'suresh@gmail.com', 'suresh', 1),
+(3, 2, 'mukesh@gmail.com', 'mukesh', 1),
+(4, 2, 'rishabh@gmail.com', 'rishabh', 1),
+(5, 2, 'pankaj@gmail.com', 'pankaj', 1),
+(6, 2, 'sachin', 'sachin', 1);
 
 -- --------------------------------------------------------
 
